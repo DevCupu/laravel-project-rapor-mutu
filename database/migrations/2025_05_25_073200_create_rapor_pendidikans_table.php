@@ -13,18 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('articles', function (Blueprint $table) {
+        Schema::create('rapor_pendidikans', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->text('content');
-            $table->string('author')->nullable();
-            $table->string('category')->nullable();
-            $table->string('thumbnail')->nullable();
-            $table->timestamp('published_at')->nullable();
+            $table->string('indikator'); // Misal: Kemampuan Literasi Murid
+            $table->string('kategori'); // Misal: Literasi, Numerasi, Karakter, dll
+            $table->text('nilai');      // Misal: "Sedang"
+            $table->text('deskripsi')->nullable(); // Penjelasan
+            $table->year('tahun');      // 2023, 2024
             $table->timestamps();
         });
     }
-
 
     /**
      * Reverse the migrations.
@@ -33,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('articles');
+        Schema::dropIfExists('rapor_pendidikans');
     }
 };

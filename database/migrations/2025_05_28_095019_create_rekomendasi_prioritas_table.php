@@ -13,18 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('articles', function (Blueprint $table) {
+        Schema::create('rekomendasi_prioritas', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->text('content');
-            $table->string('author')->nullable();
-            $table->string('category')->nullable();
-            $table->string('thumbnail')->nullable();
-            $table->timestamp('published_at')->nullable();
+            $table->string('kategori');
+            $table->string('masalah');
+            $table->text('kegiatan_benahi');
+            $table->text('kegiatan_arkas');
             $table->timestamps();
         });
     }
-
 
     /**
      * Reverse the migrations.
@@ -33,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('articles');
+        Schema::dropIfExists('rekomendasi_prioritas');
     }
 };

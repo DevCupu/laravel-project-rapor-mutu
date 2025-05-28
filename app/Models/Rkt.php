@@ -16,5 +16,6 @@ class Rkt extends Model
         'kegiatan_benahi',
         'penjelasan_implementasi',
         'biaya_diperlukan',
+        'tahun'
     ];
 }

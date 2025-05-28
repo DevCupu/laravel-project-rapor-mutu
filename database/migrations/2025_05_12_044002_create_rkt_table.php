@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('kegiatan_benahi');
             $table->text('penjelasan_implementasi');
             $table->boolean('biaya_diperlukan')->default(false); // true = butuh biaya, false = tidak
+            $table->string('tahun');
             $table->timestamps();
         });
     }

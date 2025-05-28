@@ -10,10 +10,24 @@ use Maatwebsite\Excel\Facades\Excel;
 class RktController extends Controller
 {
     // Menampilkan daftar RKT
-    public function index()
+    public function index(Request $request)
     {
-        $rkt = Rkt::all();
-        return view('rkt.index', compact('rkt'));
+        // Query dasar
+        $query = Rkt::query();
+
+        // Filter berdasarkan tahun jika ada request
+        if ($request->filled('tahun')) {
+            $query->where('tahun', $request->tahun);
+        }
+
+        // Ambil data RKT setelah filter
+        $rkt = $query->latest()->get();
+
+        // Ambil daftar tahun unik dari database
+        $tahunList = Rkt::select('tahun')->distinct()->orderBy('tahun', 'desc')->pluck('tahun');
+
+        // Kirim data ke view
+        return view('rkt.index', compact('rkt', 'tahunList'));
     }
 
     // Menampilkan form tambah RKT
@@ -31,6 +45,7 @@ class RktController extends Controller
             'kegiatan_benahi' => 'required',
             'penjelasan_implementasi' => 'required',
             'biaya_diperlukan' => 'required|boolean',
+            'tahun' => 'required|string|digits:4',
         ]);
 
         Rkt::create($request->all());

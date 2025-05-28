@@ -1,9 +1,17 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\ArticleController;
-use App\Http\Controllers\RktController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\{
+    ProfileController,
+    ArticleController,
+    RktController,
+    LrkraController,
+    RaporPendidikanController,
+    PanduanController,
+    RekomendasiPbdController,
+    RekomendasiPrioritasController
+};
+use App\Models\Article;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,22 +25,25 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $articles = Article::orderByDesc('published_at')->take(6)->get();
+    return view('welcome', compact('articles'));
 });
 
-Route::middleware(['auth'])->group(function () {
-    Route::resource('articles', ArticleController::class);
-});
+// Route publik untuk menampilkan detail artikel (di luar dashboard)
+Route::get('/artikel/{article}', [ArticleController::class, 'show'])->name('articles.show');
 
-Route::middleware(['auth'])->group(function () {
+// Group all dashboard routes with 'auth' middleware and 'dashboard' prefix
+Route::prefix('dashboard')->middleware(['auth'])->group(function () {
+    // Article CRUD (kecuali show)
+    Route::resource('articles', ArticleController::class)->except(['show']);
     Route::resource('rkt', RktController::class);
+    Route::resource('lrkra', LrkraController::class);
+    Route::resource('rapor-pendidikan', RaporPendidikanController::class);
+    Route::resource('panduan-pbd', PanduanController::class);
+    Route::resource('rekomendasi-keseluruhan', RekomendasiPbdController::class);
+    Route::resource('rekomendasi-prioritas', RekomendasiPrioritasController::class);
+    Route::get('rekomendasi-prioritas/card', [RekomendasiPrioritasController::class, 'cardView'])->name('rekomendasi-prioritas.card');
 });
-
-Route::middleware(['auth'])->group(function () {
-    Route::resource('lrkra', \App\Http\Controllers\LrkraController::class);
-});
-
-
 
 Route::get('/dashboard', function () {
     return view('dashboard');

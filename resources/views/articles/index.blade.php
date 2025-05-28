@@ -1,29 +1,22 @@
+<!-- resources/views/articles/index.blade.php -->
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <title>Dashboard Artikel</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-        }
+        body { font-family: 'Inter', sans-serif; }
     </style>
 </head>
-
 <body class="bg-purple-50 min-h-screen py-10 px-6">
     <div class="max-w-6xl mx-auto">
         <div class="flex flex-col md:flex-row justify-between items-center gap-4 mb-8">
             <h1 class="text-3xl font-bold text-purple-700">📚 Daftar Artikel</h1>
             <a href="{{ route('articles.create') }}"
-                class="inline-flex items-center gap-2 px-5 py-2 bg-purple-600 hover:bg-purple-700 text-white text-sm font-medium rounded-lg shadow transition">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
-                </svg>
-                Tambah Artikel
+               class="inline-flex items-center gap-2 px-5 py-2 bg-purple-600 hover:bg-purple-700 text-white text-sm font-medium rounded-lg shadow transition">
+                ➕ Tambah Artikel
             </a>
         </div>
 
@@ -35,7 +28,9 @@
                             <tr>
                                 <th class="px-4 py-3 text-left">#</th>
                                 <th class="px-4 py-3 text-left">Judul</th>
-                                <th class="px-4 py-3 text-left">Konten</th>
+                                <th class="px-4 py-3 text-left">Kategori</th>
+                                <th class="px-4 py-3 text-left">Penulis</th>
+                                <th class="px-4 py-3 text-left">Diterbitkan</th>
                                 <th class="px-4 py-3 text-left">Aksi</th>
                             </tr>
                         </thead>
@@ -44,18 +39,20 @@
                                 <tr>
                                     <td class="px-4 py-3">{{ $loop->iteration }}</td>
                                     <td class="px-4 py-3 font-medium text-gray-900">{{ $article->title }}</td>
-                                    <td class="px-4 py-3 text-gray-600">{{ Str::limit($article->content, 50) }}</td>
+                                    <td class="px-4 py-3">{{ $article->category ?? '-' }}</td>
+                                    <td class="px-4 py-3">{{ $article->author ?? '-' }}</td>
+                                    <td class="px-4 py-3">{{ $article->published_at ? \Carbon\Carbon::parse($article->published_at)->format('d M Y') : '-' }}</td>
                                     <td class="px-4 py-3 flex flex-wrap gap-2">
                                         <a href="{{ route('articles.edit', $article->id) }}"
-                                            class="inline-flex items-center px-3 py-1.5 bg-yellow-400 hover:bg-yellow-500 text-white text-xs font-medium rounded transition">
+                                           class="inline-flex items-center px-3 py-1.5 bg-yellow-400 hover:bg-yellow-500 text-white text-xs font-medium rounded transition">
                                             ✏️ Edit
                                         </a>
                                         <form action="{{ route('articles.destroy', $article->id) }}" method="POST"
-                                            onsubmit="return confirm('Yakin ingin hapus?')">
+                                              onsubmit="return confirm('Yakin ingin hapus?')">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit"
-                                                class="inline-flex items-center px-3 py-1.5 bg-red-500 hover:bg-red-600 text-white text-xs font-medium rounded transition">
+                                                    class="inline-flex items-center px-3 py-1.5 bg-red-500 hover:bg-red-600 text-white text-xs font-medium rounded transition">
                                                 🗑️ Hapus
                                             </button>
                                         </form>
@@ -71,5 +68,4 @@
         </div>
     </div>
 </body>
-
 </html>

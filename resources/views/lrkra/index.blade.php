@@ -1,7 +1,13 @@
-<x-app-layout>
+@extends('layouts.app')
+
+@section('header')
+    <h1 class="text-3xl font-semibold text-white">📋 Data LRKRA</h1>
+@endsection
+
+@section('content')
     <div class="max-w-7xl mx-auto px-6 py-8">
         <div class="flex justify-between items-center mb-6">
-            <h1 class="text-3xl font-semibold text-white">📋 Data LRKRA</h1>
+            <h1 class="text-2xl font-semibold text-white">📋 Data LRKRA</h1>
             <a href="{{ route('lrkra.create') }}" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
                 + Tambah Data
             </a>
@@ -61,4 +67,4 @@
             </table>
         </div>
     </div>
-</x-app-layout>
+@endsection

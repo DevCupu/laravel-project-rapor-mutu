@@ -13,26 +13,18 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('articles', function (Blueprint $table) {
-            $table->id();
-            $table->string('title');
-            $table->text('content');
+        Schema::table('articles', function (Blueprint $table) {
             $table->string('author')->nullable();
             $table->string('category')->nullable();
             $table->string('thumbnail')->nullable();
             $table->timestamp('published_at')->nullable();
-            $table->timestamps();
         });
     }
 
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
-        Schema::dropIfExists('articles');
+        Schema::table('articles', function (Blueprint $table) {
+            $table->dropColumn(['author', 'category', 'thumbnail', 'published_at']);
+        });
     }
 };
