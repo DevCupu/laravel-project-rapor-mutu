@@ -45,524 +45,7 @@
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "EducationalOrganization",
-        "name": "SMK Wahyu Makassar",
-        "description": "Sekolah Menengah Kejuruan yang menyediakan pendidikan berkualitas dengan sistem raport mutu pendidikan yang komprehensif",
-        "url": "https://smkwahyumakassar.sch.id",
-        "logo": "https://smkwahyumakassar.sch.id/images/logo.png",
-        "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Jl. Pendidikan No. 123",
-            "addressLocality": "Makassar",
-            "addressRegion": "Sulawesi Selatan",
-            "postalCode": "90222",
-            "addressCountry": "ID"
-        },
-        "contactPoint": {
-            "@type": "ContactPoint",
-            "telephone": "+62-411-123456",
-            "contactType": "customer service",
-            "email": "info@smkwahyumakassar.sch.id"
-        }
-    }
-    </script>
-
-    <style>
-        :root {
-            --primary: #7c3aed;
-            --primary-light: #a78bfa;
-            --primary-dark: #5b21b6;
-            --text-primary: #1f2937;
-            --text-secondary: #6b7280;
-            --text-light: #9ca3af;
-            --background: #ffffff;
-            --surface: #f9fafb;
-            --border: #e5e7eb;
-            --border-light: #f3f4f6;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            line-height: 1.6;
-            color: var(--text-primary);
-            background-color: var(--background);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-
-        /* Header */
-        header {
-            background: var(--background);
-            border-bottom: 1px solid var(--border);
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            backdrop-filter: blur(10px);
-            background-color: rgba(255, 255, 255, 0.95);
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            font-weight: 600;
-            font-size: 1.125rem;
-            color: var(--primary);
-            text-decoration: none;
-        }
-
-        .logo i {
-            margin-right: 0.5rem;
-            font-size: 1.25rem;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: var(--text-secondary);
-            font-weight: 500;
-            font-size: 0.875rem;
-            transition: color 0.2s;
-        }
-
-        nav a:hover,
-        nav a.active {
-            color: var(--primary);
-        }
-
-        .mobile-menu {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.25rem;
-            color: var(--text-primary);
-            cursor: pointer;
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 8rem 0 4rem;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: white;
-        }
-
-        .hero-content {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-
-        .hero p {
-            font-size: 1.125rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: white;
-            color: var(--primary);
-            padding: 0.75rem 2rem;
-            border-radius: 0.5rem;
-            text-decoration: none;
-            font-weight: 600;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Section Styles */
-        .section {
-            padding: 4rem 0;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .section-title {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--text-primary);
-        }
-
-        .section-subtitle {
-            font-size: 1.125rem;
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* Stats Section */
-        .stats {
-            background: var(--surface);
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-        }
-
-        .stat-card {
-            text-align: center;
-            padding: 2rem 1rem;
-            background: white;
-            border-radius: 0.75rem;
-            border: 1px solid var(--border-light);
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-label {
-            color: var(--text-secondary);
-            font-size: 0.875rem;
-        }
-
-        /* Features Section */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .feature-card {
-            padding: 2rem;
-            border: 1px solid var(--border-light);
-            border-radius: 0.75rem;
-            background: white;
-        }
-
-        .feature-icon {
-            width: 3rem;
-            height: 3rem;
-            background: var(--primary-light);
-            color: var(--primary-dark);
-            border-radius: 0.75rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1rem;
-            font-size: 1.25rem;
-        }
-
-        .feature-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-        }
-
-        .feature-description {
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
-
-        /* Articles Section */
-        .articles {
-            background: var(--surface);
-        }
-
-        .articles-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        .article-card {
-            background: white;
-            border-radius: 0.75rem;
-            overflow: hidden;
-            border: 1px solid var(--border-light);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .article-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
-
-        .article-image {
-            width: 100%;
-            height: 200px;
-            background: var(--border-light);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-light);
-        }
-
-        .article-content {
-            padding: 1.5rem;
-        }
-
-        .article-meta {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1rem;
-            font-size: 0.875rem;
-            color: var(--text-light);
-        }
-
-        .article-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-            line-height: 1.4;
-        }
-
-        .article-title a {
-            text-decoration: none;
-            color: var(--text-primary);
-        }
-
-        .article-title a:hover {
-            color: var(--primary);
-        }
-
-        .article-excerpt {
-            color: var(--text-secondary);
-            line-height: 1.6;
-            margin-bottom: 1rem;
-        }
-
-        .read-more {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.875rem;
-        }
-
-        .read-more:hover {
-            text-decoration: underline;
-        }
-
-        /* Contact Section */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-        }
-
-        .contact-info h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-item i {
-            color: var(--primary);
-            margin-right: 1rem;
-            margin-top: 0.25rem;
-            width: 1.25rem;
-        }
-
-        .contact-form h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-            color: var(--text-primary);
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid var(--border);
-            border-radius: 0.5rem;
-            font-family: inherit;
-            transition: border-color 0.2s;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary);
-        }
-
-        .form-group textarea {
-            height: 120px;
-            resize: vertical;
-        }
-
-        .submit-btn {
-            background: var(--primary);
-            color: white;
-            padding: 0.75rem 2rem;
-            border: none;
-            border-radius: 0.5rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background-color 0.2s;
-        }
-
-        .submit-btn:hover {
-            background: var(--primary-dark);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--text-primary);
-            color: white;
-            padding: 3rem 0 1rem;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h3 {
-            font-size: 1.125rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: var(--primary-light);
-        }
-
-        .footer-section ul {
-            list-style: none;
-        }
-
-        .footer-section ul li {
-            margin-bottom: 0.5rem;
-        }
-
-        .footer-section ul li a {
-            color: #d1d5db;
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .footer-section ul li a:hover {
-            color: var(--primary-light);
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid #374151;
-            color: #9ca3af;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .mobile-menu {
-                display: block;
-            }
-
-            nav ul {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: white;
-                flex-direction: column;
-                padding: 1rem;
-                border-top: 1px solid var(--border);
-                gap: 1rem;
-            }
-
-            nav ul.active {
-                display: flex;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .section {
-                padding: 3rem 0;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero {
-                padding: 6rem 0 3rem;
-            }
-
-            .hero h1 {
-                font-size: 1.75rem;
-            }
-
-            .section-title {
-                font-size: 1.75rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 
 <body>
@@ -579,6 +62,7 @@
                     <ul id="nav-menu">
                         <li><a href="#home" class="active">Beranda</a></li>
                         <li><a href="#articles">Artikel</a></li>
+                        <li><a href="/login">Login</a></li>
                     </ul>
                 </nav>
 
@@ -596,7 +80,7 @@
                 <h1>Raport Mutu Pendidikan SMK Wahyu Makassar</h1>
                 <p>Sistem informasi komprehensif untuk memantau dan meningkatkan kualitas pendidikan berdasarkan 8
                     Standar Nasional Pendidikan</p>
-                <a href="#stats" class="cta-button">Lihat Raport Mutu</a>
+                <a href="#stats" class="cta-button">Lihat Raport Mutu!</a>
             </div>
         </div>
     </section>
@@ -605,46 +89,335 @@
     <section class="section stats" id="stats">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Pencapaian Mutu Pendidikan</h2>
+                <h2 class="section-title">Evaluasi Hasil Pencapaian Rapor Mutu Pendidikan SMKS Wahyu 1 Makassar</h2>
                 <p class="section-subtitle">Hasil evaluasi berdasarkan 8 Standar Nasional Pendidikan</p>
             </div>
 
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-number">92%</div>
-                    <div class="stat-label">Standar Kompetensi Lulusan</div>
+            <div class="stats-charts"
+                style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; margin-bottom: 3rem;">
+                <!-- CHART 1: Line Chart -->
+                <div
+                    style="flex:1 1 350px; background: #fff; border-radius: 1rem; box-shadow: 0 4px 24px rgba(124,58,237,0.07); padding: 2rem; min-width:320px;">
+                    <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:1rem;">
+                        <i class="fas fa-calendar-alt" style="color:#7c3aed;"></i>
+                        <h3 style="font-size:1.1rem;font-weight:600;color:#1f2937;">Jumlah Kegiatan per Bulan</h3>
+                    </div>
+                    <canvas id="monthlyChart" height="220"></canvas>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-number">88%</div>
-                    <div class="stat-label">Standar Isi</div>
+                <!-- CHART 2: Bar Chart -->
+                <div
+                    style="flex:1 1 350px; background: #fff; border-radius: 1rem; box-shadow: 0 4px 24px rgba(124,58,237,0.07); padding: 2rem; min-width:320px;">
+                    <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:1rem;">
+                        <i class="fas fa-coins" style="color:#7c3aed;"></i>
+                        <h3 style="font-size:1.1rem;font-weight:600;color:#1f2937;">Total Biaya per Kegiatan Benahi</h3>
+                    </div>
+                    <canvas id="lrkraChart" height="220"></canvas>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-number">90%</div>
-                    <div class="stat-label">Standar Proses</div>
+
+                <!-- CHART 3: Bar Chart Nilai per Kategori -->
+                <div
+                    style="flex:1 1 350px; background: #fff; border-radius: 1rem; box-shadow: 0 4px 24px rgba(124,58,237,0.07); padding: 2rem; min-width:320px;">
+                    <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:1rem;">
+                        <i class="fas fa-chart-bar" style="color:#7c3aed;"></i>
+                        <h3 style="font-size:1.1rem;font-weight:600;color:#1f2937;">Distribusi Nilai per Kategori</h3>
+                    </div>
+                    <canvas id="raporChart" height="220"></canvas>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-number">85%</div>
-                    <div class="stat-label">Standar Penilaian</div>
+
+                <!-- CHART 4: Line Chart Jumlah Rapor per Tahun -->
+                <div
+                    style="flex:0 1 350px; background: #fff; border-radius: 0.85rem; box-shadow: 0 2px 12px rgba(124,58,237,0.06); padding: 1.25rem 1rem; min-width:620px; max-width:20px; margin:0 auto;">
+                    <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.7rem;">
+                        <i class="fas fa-chart-line" style="color:#7c3aed;font-size:1.1rem;"></i>
+                        <h3 style="font-size:1rem;font-weight:600;color:#1f2937;line-height:1.2;">Rapor
+                            Pendidikan<br><span style="font-weight:400;color:#6b7280;font-size:0.93rem;">per
+                                Tahun</span></h3>
+                    </div>
+                    <canvas id="raporTahunChart" height="140" style="max-width:100%;"></canvas>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-number">87%</div>
-                    <div class="stat-label">Standar Pendidik</div>
+
+                <div class="insight-box"
+                    style="
+                        background: linear-gradient(135deg, #ede9fe 0%, #f3f4f6 100%);
+                        padding: 2rem 2.5rem;
+                        border-radius: 1.25rem;
+                        margin: 2.5rem auto 0 auto;
+                        max-width: 820px;
+                        box-shadow: 0 6px 32px rgba(124,58,237,0.08), 0 1.5px 6px rgba(0,0,0,0.03);
+                        display: flex;
+                        align-items: flex-start;
+                        gap: 1.5rem;
+                        position: relative;
+                        overflow: hidden;
+                    ">
+                    <div
+                        style="
+                        flex-shrink: 0;
+                        width: 3.5rem;
+                        height: 3.5rem;
+                        background: linear-gradient(135deg, #a78bfa 0%, #7c3aed 100%);
+                        border-radius: 1rem;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        box-shadow: 0 2px 8px rgba(124,58,237,0.10);
+                        margin-top: 0.25rem;
+                    ">
+                        <i class="fas fa-lightbulb" style="color:#fff;font-size:1.6rem;"></i>
+                    </div>
+                    <div>
+                        <h3
+                            style="color: #1f2937; font-weight: 700; font-size: 1.25rem; margin-bottom: 0.7rem; letter-spacing: -0.5px;">
+                            Insight Otomatis
+                        </h3>
+                        <ul
+                            style="
+                            color: #374151;
+                            font-size: 1.07rem;
+                            line-height: 1.8;
+                            padding-left: 1.2rem;
+                            list-style: disc;
+                            margin: 0;
+                        ">
+                            <li>
+                                <strong>Rencana Kegiatan:</strong>
+                                <span>{!! $insightRKT !!}</span>
+                            </li>
+                            <li>
+                                <strong>Rapor Mutu:</strong>
+                                <span>{!! $insightRapor !!}</span>
+                            </li>
+                            @if (!empty($insightMasalah))
+                                <li>
+                                    <strong>Catatan & Masalah:</strong>
+                                    <span>{!! $insightMasalah !!}</span>
+                                </li>
+                            @endif
+                            <li>
+                                <strong>Kegiatan Paling Banyak dibiayai:</strong>
+                                <span>{!! $insightBiaya !!}</span>
+                            </li>
+                            {{-- Tambahkan insight lain di sini --}}
+                        </ul>
+                    </div>
+                    <span
+                        style="
+                        position: absolute;
+                        right: -40px;
+                        top: -40px;
+                        width: 120px;
+                        height: 120px;
+                        background: radial-gradient(circle at 40% 40%, #a78bfa33 0%, transparent 70%);
+                        z-index: 0;
+                        pointer-events: none;
+                    "></span>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-number">89%</div>
-                    <div class="stat-label">Standar Sarana Prasarana</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">91%</div>
-                    <div class="stat-label">Standar Pengelolaan</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">86%</div>
-                    <div class="stat-label">Standar Pembiayaan</div>
-                </div>
+
             </div>
-        </div>
+
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            @php use Carbon\Carbon; @endphp
+            <script>
+                // Chart 1
+                new Chart(document.getElementById('monthlyChart'), {
+                    type: 'line',
+                    data: {
+                        labels: {!! json_encode($monthlyData->pluck('bulan')->map(fn($b) => Carbon::create()->month($b)->translatedFormat('F'))) !!},
+                        datasets: [{
+                            label: 'Jumlah Kegiatan',
+                            data: {!! json_encode($monthlyData->pluck('jumlah_kegiatan')) !!},
+                            borderColor: '#7c3aed',
+                            backgroundColor: 'rgba(124,58,237,0.08)',
+                            pointBackgroundColor: '#fff',
+                            pointBorderColor: '#7c3aed',
+                            pointRadius: 5,
+                            fill: true,
+                            tension: 0.4
+                        }]
+                    },
+                    options: {
+                        plugins: {
+                            legend: {
+                                display: false
+                            }
+                        },
+                        responsive: true,
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+
+                // Chart 2
+                new Chart(document.getElementById('lrkraChart'), {
+                    type: 'bar',
+                    data: {
+                        labels: {!! json_encode($data->pluck('kegiatan_benahi')) !!},
+                        datasets: [{
+                            label: 'Total Biaya',
+                            data: {!! json_encode($data->pluck('total_biaya')) !!},
+                            backgroundColor: [
+                                '#a78bfa', '#c4b5fd', '#ddd6fe', '#f3e8ff', '#ede9fe', '#f5f3ff', '#e0e7ff',
+                                '#dbeafe'
+                            ],
+                            borderColor: '#7c3aed',
+                            borderWidth: 1.5
+                        }]
+                    },
+                    options: {
+                        plugins: {
+                            legend: {
+                                display: false
+                            }
+                        },
+                        responsive: true,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                ticks: {
+                                    callback: function(value) {
+                                        return 'Rp ' + value.toLocaleString('id-ID');
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            </script>
+
+            @php
+                $nilaiList = ['Tinggi', 'Sedang', 'Rendah']; // Ubah sesuai kondisi data kamu
+            @endphp
+
+            <script>
+                // CHART 3
+                const raporData = @json($raporChart);
+                const kategoriNilai = {};
+
+                raporData.forEach(item => {
+                    if (!kategoriNilai[item.kategori]) {
+                        kategoriNilai[item.kategori] = {};
+                    }
+                    kategoriNilai[item.kategori][item.nilai] = item.jumlah;
+                });
+
+                const labelsRapor = Object.keys(kategoriNilai);
+                const nilaiList = @json($nilaiList);
+
+                const datasetsRapor = nilaiList.map(nilai => ({
+                    label: nilai,
+                    data: labelsRapor.map(kat => kategoriNilai[kat][nilai] || 0),
+                    backgroundColor: nilai === 'Tinggi' ? 'rgba(34,197,94,0.7)' : nilai === 'Sedang' ?
+                        'rgba(251,191,36,0.7)' : 'rgba(239,68,68,0.7)'
+                }));
+
+                new Chart(document.getElementById('raporChart'), {
+                    type: 'bar',
+                    data: {
+                        labels: labelsRapor,
+                        datasets: datasetsRapor
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            title: {
+                                display: false
+                            },
+                            tooltip: {
+                                mode: 'index',
+                                intersect: false
+                            }
+                        },
+                        scales: {
+                            x: {
+                                stacked: true
+                            },
+                            y: {
+                                stacked: true,
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+
+                // CHART 4: Line Chart Per Tahun
+                const raporTahun = @json($raporPerTahun);
+                const tahunLabels = raporTahun.map(item => item.tahun);
+                const totalPerTahun = raporTahun.map(item => item.total);
+
+                new Chart(document.getElementById('raporTahunChart'), {
+                    type: 'line',
+                    data: {
+                        labels: tahunLabels,
+                        datasets: [{
+                            label: 'Jumlah Indikator',
+                            data: totalPerTahun,
+                            fill: true,
+                            borderColor: '#7c3aed',
+                            backgroundColor: 'rgba(124,58,237,0.1)',
+                            tension: 0.4,
+                            pointBackgroundColor: '#fff',
+                            pointBorderColor: '#7c3aed',
+                            pointRadius: 5
+                        }]
+                    },
+                    options: {
+                        plugins: {
+                            legend: {
+                                display: false
+                            },
+                            title: {
+                                display: false
+                            }
+                        },
+                        responsive: true,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                ticks: {
+                                    stepSize: 1
+                                }
+                            }
+                        }
+                    }
+                });
+            </script>
+
+
+            {{-- <!-- STATISTIK STANDAR -->
+            <div class="stats-grid" style="margin-top: 3rem;">
+                @foreach ([
+        'Standar Kompetensi Lulusan' => 92,
+        'Standar Isi' => 88,
+        'Standar Proses' => 90,
+        'Standar Penilaian' => 85,
+        'Standar Pendidik' => 87,
+        'Standar Sarana Prasarana' => 89,
+        'Standar Pengelolaan' => 91,
+        'Standar Pembiayaan' => 86,
+    ] as $label => $value)
+                    <div class="stat-card"
+                        style="background:linear-gradient(135deg,#ede9fe 0%,#fff 100%);box-shadow:0 2px 12px rgba(124,58,237,0.06);padding:2rem 1rem;display:flex;flex-direction:column;align-items:center;">
+                        <div class="stat-number"
+                            style="font-size:2.2rem;font-weight:700;color:#7c3aed;margin-bottom:0.5rem;">
+                            {{ $value }}%
+                        </div>
+                        <div class="stat-label" style="font-size:1rem;color:#6b7280;text-align:center;">
+                            {{ $label }}
+                        </div>
+                        <div style="width:100%;height:8px;background:#f3f4f6;border-radius:4px;margin-top:1rem;">
+                            <div
+                                style="width:{{ $value }}%;height:100%;background:#7c3aed;border-radius:4px;transition:width 1s;">
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div> --}}
     </section>
+
 
     <!-- Articles Section -->
     <section class="section articles" id="articles">
@@ -662,22 +435,27 @@
                                 style="width:100%;height:160px;object-fit:cover;object-position:center;display:block;border-radius:0.5rem 0.5rem 0 0;"
                                 alt="{{ $article->title }}">
                         @else
-                            <div style="height:160px;display:flex;align-items:center;justify-content:center;background:#f3f4f6;">
+                            <div
+                                style="height:160px;display:flex;align-items:center;justify-content:center;background:#f3f4f6;">
                                 <x-heroicon-o-newspaper style="width:2.5rem;height:2.5rem;color:#9ca3af;" />
                             </div>
                         @endif
 
                         <div style="padding:1rem;">
-                            <div style="display:flex;flex-wrap:wrap;gap:0.75rem;font-size:0.85rem;color:#9ca3af;margin-bottom:0.5rem;">
+                            <div
+                                style="display:flex;flex-wrap:wrap;gap:0.75rem;font-size:0.85rem;color:#9ca3af;margin-bottom:0.5rem;">
                                 <span>📅
                                     {{ \Carbon\Carbon::parse($article->published_at)->translatedFormat('d F Y') }}</span>
                                 <span>👤 {{ $article->author }}</span>
                                 <span>🏷️ {{ $article->category }}</span>
                             </div>
-                            <h3 style="font-weight:600;font-size:1.05rem;color:#1f2937;margin-bottom:0.5rem;">{{ $article->title }}</h3>
-                            <p style="font-size:0.95rem;color:#6b7280;margin-bottom:0.75rem;">{{ Str::limit(strip_tags($article->content), 100) }}</p>
+                            <h3 style="font-weight:600;font-size:1.05rem;color:#1f2937;margin-bottom:0.5rem;">
+                                {{ $article->title }}</h3>
+                            <p style="font-size:0.95rem;color:#6b7280;margin-bottom:0.75rem;">
+                                {{ Str::limit(strip_tags($article->content), 100) }}</p>
                             <a href="{{ route('articles.show', $article->id) }}"
-                                style="font-size:0.95rem;color:#7c3aed;text-decoration:none;font-weight:500;">Baca Selengkapnya →</a>
+                                style="font-size:0.95rem;color:#7c3aed;text-decoration:none;font-weight:500;">Baca
+                                Selengkapnya →</a>
                         </div>
                     </div>
                 @endforeach
@@ -839,7 +617,7 @@
             if (article) {
                 alert(
                     `Membuka artikel: "${article.title}"\n\nIni adalah demo. Dalam implementasi nyata, artikel akan dibuka di halaman terpisah atau modal.`
-                    );
+                );
             }
         }
 
