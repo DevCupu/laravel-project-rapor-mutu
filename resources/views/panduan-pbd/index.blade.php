@@ -8,7 +8,8 @@
 
 @section('content')
 <div class="py-6 px-4 sm:px-6 lg:px-8">
-    <div class="bg-white shadow p-6 rounded-lg">
+    <x-back-to-dashboard>Kembali</x-back-to-dashboard>
+    <div class="bg-white shadow p-6 rounded-lg mt-2">
         <div class="flex justify-between items-center mb-6 flex-wrap gap-4">
             <h1 class="text-xl font-bold text-gray-800">Ringkasan Rapor Mutu Pendidikan</h1>
         </div>

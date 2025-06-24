@@ -7,58 +7,87 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; }
+        .form-group {
+            position: relative;
+        }
+        .form-input {
+            padding-top: 1.25rem;
+            padding-bottom: 0.5rem;
+        }
+        .form-label {
+            position: absolute;
+            top: 0.75rem;
+            left: 1rem;
+            font-size: 0.85rem;
+            color: #6b7280;
+            pointer-events: none;
+            transition: 0.2s ease all;
+        }
+        .form-input:focus + .form-label,
+        .form-input:not(:placeholder-shown) + .form-label {
+            top: 0.3rem;
+            font-size: 0.75rem;
+            color: #7083C3;
+        }
     </style>
 </head>
-<body class="bg-purple-50 min-h-screen py-10 px-6">
-    <div class="max-w-3xl mx-auto bg-white p-8 rounded-lg shadow-md">
-        <h2 class="text-2xl font-bold text-purple-700 mb-6">📝 Tambah Artikel</h2>
+<body class="bg-[#f4f6fa] min-h-screen py-10 px-4 text-gray-800">
+    <div class="max-w-3xl mx-auto bg-white p-10 rounded-3xl shadow-xl border border-gray-200">
+        <h2 class="text-3xl font-bold text-[#7083C3] mb-10 tracking-tight">📝 Tambah Artikel</h2>
 
-        <form action="{{ route('articles.store') }}" method="POST" enctype="multipart/form-data" class="space-y-6">
+        <form action="{{ route('articles.store') }}" method="POST" enctype="multipart/form-data" class="space-y-8">
             @csrf
 
-            <div>
-                <label for="title" class="block text-sm font-medium text-purple-800 mb-1">Judul</label>
-                <input type="text" name="title" id="title" required
-                       class="w-full px-4 py-2 border border-purple-300 rounded-md focus:ring-2 focus:ring-purple-500">
+            <!-- Judul -->
+            <div class="form-group">
+                <input type="text" name="title" id="title" required placeholder=" "
+                       class="form-input w-full px-4 pt-6 pb-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#7083C3] focus:border-[#7083C3] transition"/>
+                <label for="title" class="form-label">Judul</label>
             </div>
 
-            <div>
-                <label for="content" class="block text-sm font-medium text-purple-800 mb-1">Konten</label>
-                <textarea name="content" id="content" rows="6" required
-                          class="w-full px-4 py-2 border border-purple-300 rounded-md focus:ring-2 focus:ring-purple-500"></textarea>
+            <!-- Konten -->
+            <div class="form-group">
+                <textarea name="content" id="content" rows="6" required placeholder=" "
+                          class="form-input w-full px-4 pt-6 pb-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#7083C3] focus:border-[#7083C3] transition resize-y"></textarea>
+                <label for="content" class="form-label">Konten</label>
             </div>
 
-            <div>
-                <label for="author" class="block text-sm font-medium text-purple-800 mb-1">Penulis</label>
-                <input type="text" name="author" id="author"
-                       class="w-full px-4 py-2 border border-purple-300 rounded-md focus:ring-2 focus:ring-purple-500">
+            <!-- Penulis -->
+            <div class="form-group">
+                <input type="text" name="author" id="author" placeholder=" "
+                       class="form-input w-full px-4 pt-6 pb-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#7083C3] focus:border-[#7083C3] transition"/>
+                <label for="author" class="form-label">Penulis</label>
             </div>
 
-            <div>
-                <label for="category" class="block text-sm font-medium text-purple-800 mb-1">Kategori</label>
-                <input type="text" name="category" id="category"
-                       class="w-full px-4 py-2 border border-purple-300 rounded-md focus:ring-2 focus:ring-purple-500">
+            <!-- Kategori -->
+            <div class="form-group">
+                <input type="text" name="category" id="category" placeholder=" "
+                       class="form-input w-full px-4 pt-6 pb-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#7083C3] focus:border-[#7083C3] transition"/>
+                <label for="category" class="form-label">Kategori</label>
             </div>
 
-            <div>
-                <label for="published_at" class="block text-sm font-medium text-purple-800 mb-1">Tanggal Publikasi</label>
-                <input type="datetime-local" name="published_at" id="published_at"
-                       class="w-full px-4 py-2 border border-purple-300 rounded-md focus:ring-2 focus:ring-purple-500">
+            <!-- Tanggal Publikasi -->
+            <div class="form-group">
+                <input type="datetime-local" name="published_at" id="published_at" placeholder=" "
+                       class="form-input w-full px-4 pt-6 pb-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#7083C3] focus:border-[#7083C3] transition"/>
+                <label for="published_at" class="form-label">Tanggal Publikasi</label>
             </div>
 
+            <!-- Thumbnail -->
             <div>
-                <label for="thumbnail" class="block text-sm font-medium text-purple-800 mb-1">Gambar Thumbnail</label>
+                <label for="thumbnail" class="block text-sm font-medium text-gray-700 mb-2">Gambar Thumbnail</label>
                 <input type="file" name="thumbnail" id="thumbnail" accept="image/*"
-                       class="w-full px-4 py-2 border border-purple-300 rounded-md file:mr-4 file:py-2 file:px-4 file:border-0 file:text-sm file:font-semibold file:bg-purple-100 file:text-purple-700 hover:file:bg-purple-200">
+                       class="block w-full text-sm text-gray-600 border border-gray-300 rounded-xl file:mr-4 file:py-2 file:px-4 file:border-0 file:text-sm file:font-semibold file:bg-[#e7eaf9] file:text-[#7083C3] hover:file:bg-[#d7defa] transition"/>
             </div>
 
-            <div class="flex justify-between">
+            <!-- Tombol -->
+            <div class="flex justify-between items-center pt-4">
                 <a href="{{ route('articles.index') }}"
-                   class="inline-flex items-center px-4 py-2 bg-gray-300 hover:bg-gray-400 text-sm font-medium rounded-md text-gray-700">
+                   class="inline-flex items-center px-4 py-2 text-sm font-bold text-gray-600 bg-transparent border border-gray-300 rounded-xl hover:bg-gray-100 transition">
                     ← Kembali
                 </a>
                 <button type="submit"
-                        class="inline-flex items-center px-6 py-2 bg-purple-600 hover:bg-purple-700 text-white text-sm font-semibold rounded-md shadow">
+                        class="inline-flex items-center px-6 py-2 bg-[#7083C3] hover:bg-[#5c6bb2] text-white text-sm font-semibold rounded-xl shadow transition">
                     Simpan Artikel
                 </button>
             </div>

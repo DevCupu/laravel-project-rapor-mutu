@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.custom-bg {
+  @apply text-white;
+  background-color: #7083C3;
+}
