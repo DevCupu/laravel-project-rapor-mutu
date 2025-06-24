@@ -46,6 +46,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    
+    <link rel="icon" href="{{ asset('logo-smk1.png') }}" type="image/x-icon"/>
+
 </head>
 
 <body>
@@ -90,7 +93,7 @@
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Evaluasi Hasil Pencapaian Rapor Mutu Pendidikan SMKS Wahyu 1 Makassar</h2>
-                <p class="section-subtitle">Hasil evaluasi berdasarkan 8 Standar Nasional Pendidikan</p>
+                <p class="section-subtitle">Hasil evaluasi Standar Nasional Pendidikan</p>
             </div>
 
             <div class="stats-charts"
@@ -104,14 +107,17 @@
                     </div>
                     <canvas id="monthlyChart" height="220"></canvas>
                 </div>
-                <!-- CHART 2: Bar Chart -->
+                
+                <!-- CHART 2: Bar Chart (Flexible Width) -->
                 <div
-                    style="flex:1 1 350px; background: #fff; border-radius: 1rem; box-shadow: 0 4px 24px rgba(124,58,237,0.07); padding: 2rem; min-width:320px;">
+                    style="flex:1 1 350px; background: #fff; border-radius: 1rem; box-shadow: 0 4px 24px rgba(124,58,237,0.07); padding: 2rem; min-width:520px; max-width:720px; overflow-x:auto;">
                     <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:1rem;">
                         <i class="fas fa-coins" style="color:#7c3aed;"></i>
                         <h3 style="font-size:1.1rem;font-weight:600;color:#1f2937;">Total Biaya per Kegiatan Benahi</h3>
                     </div>
-                    <canvas id="lrkraChart" height="220"></canvas>
+                    <div style="min-width:{{ max(350, count($data) * 80) }}px;">
+                        <canvas id="lrkraChart" height="220"></canvas>
+                    </div>
                 </div>
 
                 <!-- CHART 3: Bar Chart Nilai per Kategori -->
@@ -385,37 +391,6 @@
                 });
             </script>
 
-
-            {{-- <!-- STATISTIK STANDAR -->
-            <div class="stats-grid" style="margin-top: 3rem;">
-                @foreach ([
-        'Standar Kompetensi Lulusan' => 92,
-        'Standar Isi' => 88,
-        'Standar Proses' => 90,
-        'Standar Penilaian' => 85,
-        'Standar Pendidik' => 87,
-        'Standar Sarana Prasarana' => 89,
-        'Standar Pengelolaan' => 91,
-        'Standar Pembiayaan' => 86,
-    ] as $label => $value)
-                    <div class="stat-card"
-                        style="background:linear-gradient(135deg,#ede9fe 0%,#fff 100%);box-shadow:0 2px 12px rgba(124,58,237,0.06);padding:2rem 1rem;display:flex;flex-direction:column;align-items:center;">
-                        <div class="stat-number"
-                            style="font-size:2.2rem;font-weight:700;color:#7c3aed;margin-bottom:0.5rem;">
-                            {{ $value }}%
-                        </div>
-                        <div class="stat-label" style="font-size:1rem;color:#6b7280;text-align:center;">
-                            {{ $label }}
-                        </div>
-                        <div style="width:100%;height:8px;background:#f3f4f6;border-radius:4px;margin-top:1rem;">
-                            <div
-                                style="width:{{ $value }}%;height:100%;background:#7c3aed;border-radius:4px;transition:width 1s;">
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-        </div> --}}
     </section>
 
 
@@ -509,7 +484,7 @@
             </div>
 
             <div class="footer-bottom">
-                <p>&copy; 2023 SMK Wahyu Makassar. Hak Cipta Dilindungi.</p>
+                <p>&copy; 2025 SMK Wahyu Makassar. Hak Cipta Dilindungi.</p>
             </div>
         </div>
     </footer>

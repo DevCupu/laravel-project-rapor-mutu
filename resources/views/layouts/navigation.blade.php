@@ -16,6 +16,7 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
+
             </div>
 
             <!-- Settings Dropdown -->
@@ -58,6 +59,13 @@
                         </form>
                     </x-slot>
                 </x-dropdown>
+
+                <!-- Dark Mode Toggle Button -->
+                <div class="flex items-center ml-4">
+                    <button id="darkModeToggle" class="text-xl focus:outline-none" aria-label="Toggle dark mode">
+                        <span id="modeIcon">🌙</span>
+                    </button>
+                </div>
             </div>
 
             <!-- Hamburger -->
@@ -122,3 +130,35 @@
         </div>
     </div>
 </nav>
+
+
+<script>
+    // Set initial icon and theme on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        const html = document.documentElement;
+        const icon = document.getElementById('modeIcon');
+        if (localStorage.getItem('theme') === 'dark' ||
+            (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+            icon.innerText = '☀️';
+        } else {
+            html.classList.remove('dark');
+            icon.innerText = '🌙';
+        }
+    });
+
+    // Toggle dark mode
+    document.getElementById('darkModeToggle').addEventListener('click', function() {
+        const html = document.documentElement;
+        const icon = document.getElementById('modeIcon');
+        if (html.classList.contains('dark')) {
+            html.classList.remove('dark');
+            localStorage.setItem('theme', 'light');
+            icon.innerText = '🌙';
+        } else {
+            html.classList.add('dark');
+            localStorage.setItem('theme', 'dark');
+            icon.innerText = '☀️';
+        }
+    });
+</script>

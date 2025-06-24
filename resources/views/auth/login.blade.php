@@ -1,6 +1,4 @@
 <x-guest-layout>
-    <div class="w-full max-w-md bg-white/70 backdrop-blur-lg border border-gray-200 rounded-2xl shadow-xl p-8">
-
         <!-- Judul -->
         <div class="text-center mb-6">
             <h1 class="text-xl font-bold text-gray-800 leading-tight">Rapor Mutu Pendidikan</h1>
@@ -51,5 +49,4 @@
                 </x-primary-button>
             </div>
         </form>
-    </div>
 </x-guest-layout>
