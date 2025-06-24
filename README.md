@@ -55,6 +55,5 @@ Website ini hadir untuk membantu sekolah memantau dan meningkatkan mutu pendidik
 username: admin@web.com
 pass: superpassword
 ```
-
-Selamat berkarya dan semoga sukses! 🚀✨
+Happy Coding 😁
 
