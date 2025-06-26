@@ -2,70 +2,81 @@
 
 @section('header')
     <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-        Rapor Mutu Pendidikan - SMKS Wahyu Makassar
+        Perencanaan Berbasis Data - SMKS Wahyu Makassar
     </h2>
 @endsection
 
 @section('content')
 <div class="py-6 px-4 sm:px-6 lg:px-8">
     <x-back-to-dashboard>Kembali</x-back-to-dashboard>
-    <div class="bg-white shadow p-6 rounded-lg mt-2">
-        <div class="flex justify-between items-center mb-6 flex-wrap gap-4">
-            <h1 class="text-xl font-bold text-gray-800">Ringkasan Rapor Mutu Pendidikan</h1>
+
+    <div class="bg-white shadow p-6 rounded-xl mt-4">
+        <h1 class="text-2xl font-bold text-gray-800 mb-4">Perancangan Rapor Pendidikan</h1>
+        <p class="text-sm text-gray-600 mb-6">Berikut adalah ringkasan tahapan Perencanaan Berbasis Data (PBD) berdasarkan indikator dari Rapor Pendidikan Nasional.</p>
+
+        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <!-- Identifikasi -->
+            <div class="bg-blue-50 rounded-2xl shadow-sm p-6 hover:shadow-md transition-all">
+                <div class="flex items-center gap-4 mb-3">
+                    <div class="bg-blue-200 text-blue-700 p-2 rounded-full">
+                        <i class="fas fa-search text-xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-lg text-blue-900">Identifikasi</h3>
+                </div>
+                <p class="text-sm text-gray-700">
+                    Menentukan indikator prioritas berdasarkan hasil rapor pendidikan. Fokus pada capaian literasi, numerasi, dan iklim sekolah.
+                </p>
+            </div>
+
+            <!-- Refleksi -->
+            <div class="bg-yellow-50 rounded-2xl shadow-sm p-6 hover:shadow-md transition-all">
+                <div class="flex items-center gap-4 mb-3">
+                    <div class="bg-yellow-200 text-yellow-700 p-2 rounded-full">
+                        <i class="fas fa-comments text-xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-lg text-yellow-900">Refleksi</h3>
+                </div>
+                <p class="text-sm text-gray-700">
+                    Diskusi dengan warga sekolah dan pemangku kepentingan untuk memahami akar masalah dan tantangan di lapangan.
+                </p>
+            </div>
+
+            <!-- Benahi -->
+            <div class="bg-green-50 rounded-2xl shadow-sm p-6 hover:shadow-md transition-all">
+                <div class="flex items-center gap-4 mb-3">
+                    <div class="bg-green-200 text-green-700 p-2 rounded-full">
+                        <i class="fas fa-tools text-xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-lg text-green-900">Benahi</h3>
+                </div>
+                <p class="text-sm text-gray-700">
+                    Menyusun rencana perbaikan seperti pelatihan guru, penguatan literasi, peningkatan fasilitas, dan lainnya.
+                </p>
+            </div>
         </div>
 
-        <div class="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
-            <!-- Card 1 -->
-            <div class="relative bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100 p-0 overflow-visible">
-                <div class="absolute -top-8 left-6 bg-blue-100 rounded-full p-3 shadow-md">
-                    <svg class="w-10 h-10 text-blue-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path d="M8 16l4-4 4 4M8 8l4 4 4-4" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </div>
-                <div class="pt-10 pb-4 px-6">
-                    <h3 class="text-lg font-semibold text-gray-800">Kompetensi Siswa</h3>
-                    <p class="text-sm text-gray-600 mt-2">Sebagian besar siswa menunjukkan peningkatan dalam literasi dan numerasi dasar.</p>
-                </div>
-            </div>
+        <div class="mt-10 border-t pt-6">
+            <h2 class="text-xl font-bold text-gray-800 mb-4">Indikator Prioritas Sekolah</h2>
+            <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-2">
+                <!-- Literasi -->
+                <x-rapor-card color="blue" icon="book" title="Kompetensi Literasi & Numerasi">
+                    Hasil Asesmen Nasional menunjukkan peningkatan literasi dan numerasi dasar siswa.
+                </x-rapor-card>
 
-            <!-- Card 2 -->
-            <div class="relative bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100 p-0 overflow-visible">
-                <div class="absolute -top-8 left-6 bg-green-100 rounded-full p-3 shadow-md">
-                    <svg class="w-10 h-10 text-green-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </div>
-                <div class="pt-10 pb-4 px-6">
-                    <h3 class="text-lg font-semibold text-gray-800">Manajemen Sekolah</h3>
-                    <p class="text-sm text-gray-600 mt-2">Sekolah telah mengembangkan sistem pengelolaan berbasis digital secara bertahap.</p>
-                </div>
-            </div>
+                <!-- Iklim -->
+                <x-rapor-card color="yellow" icon="school" title="Iklim Sekolah Aman & Inklusif">
+                    Lingkungan sekolah aman, mendukung, dan inklusif bagi semua peserta didik.
+                </x-rapor-card>
 
-            <!-- Card 3 -->
-            <div class="relative bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100 p-0 overflow-visible">
-                <div class="absolute -top-8 left-6 bg-yellow-100 rounded-full p-3 shadow-md">
-                    <svg class="w-10 h-10 text-yellow-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path d="M9.75 9.75h4.5v4.5h-4.5z" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M4.5 4.5h15v15h-15z" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </div>
-                <div class="pt-10 pb-4 px-6">
-                    <h3 class="text-lg font-semibold text-gray-800">Kualitas Guru</h3>
-                    <p class="text-sm text-gray-600 mt-2">Peningkatan kualitas guru melalui pelatihan rutin dan sertifikasi pendidikan.</p>
-                </div>
-            </div>
+                <!-- Pembelajaran -->
+                <x-rapor-card color="green" icon="chalkboard-teacher" title="Kualitas Pembelajaran">
+                    Guru aktif mengikuti pelatihan dan menerapkan strategi pembelajaran berdiferensiasi.
+                </x-rapor-card>
 
-            <!-- Card 4 -->
-            <div class="relative bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100 p-0 overflow-visible">
-                <div class="absolute -top-8 left-6 bg-red-100 rounded-full p-3 shadow-md">
-                    <svg class="w-10 h-10 text-red-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </div>
-                <div class="pt-10 pb-4 px-6">
-                    <h3 class="text-lg font-semibold text-gray-800">Lingkungan Belajar</h3>
-                    <p class="text-sm text-gray-600 mt-2">Lingkungan sekolah mendukung proses belajar mengajar yang kondusif dan aman.</p>
-                </div>
+                <!-- Manajemen -->
+                <x-rapor-card color="red" icon="chart-line" title="Manajemen Berbasis Data">
+                    Sekolah mulai mengintegrasikan sistem pengelolaan digital dan pengambilan keputusan berbasis data.
+                </x-rapor-card>
             </div>
         </div>
     </div>

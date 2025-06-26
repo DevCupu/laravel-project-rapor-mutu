@@ -48,6 +48,33 @@ Website ini hadir untuk membantu sekolah memantau dan meningkatkan mutu pendidik
    ```
 
 ---
+### 🛠️ Jika Mengalami Error Saat Cloning atau Setup
+
+#### 1. Atur `.env` Jika Menggunakan Built-in Server
+Tambahkan atau pastikan baris berikut di file `.env`:
+```env
+PHP_CLI_SERVER_WORKERS=1
+```
+
+#### 2. Update Composer
+Jalankan perintah berikut di terminal:
+```bash
+composer update laravel/framework
+```
+
+#### 3. Bersihkan Cache
+Agar perubahan konfigurasi terbaca, jalankan:
+```bash
+php artisan config:clear
+php artisan view:clear
+```
+
+#### 4. Jika Error Tabel `sessions`
+Jika muncul error terkait tabel `sessions`, buat tabelnya dengan:
+```bash
+php artisan session:table
+php artisan migrate
+```
 
 ### 👑 Akun Super Admin
 

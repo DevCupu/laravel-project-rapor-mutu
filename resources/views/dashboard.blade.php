@@ -29,8 +29,8 @@
             'span' => 'col-span-1',
             ],
             [
-            'title' => 'LRKRA',
-            'desc' => 'Kelola data LRKRA Anda secara efisien dan terstruktur.',
+            'title' => 'Rancangan ARKAS',
+            'desc' => 'Kelola data Arkas (Lembar Rencana Kerja Rancangan Arkas).',
             'route' => route('lrkra.index'),
             'color' => 'from-emerald-400 to-emerald-500',
             'icon' =>
@@ -39,8 +39,8 @@
             'span' => 'col-span-1',
             ],
             [
-            'title' => 'RKT',
-            'desc' => 'Kelola lembar rencana kerja tahunan Anda.',
+            'title' => 'Rencana RKT',
+            'desc' => 'Lembar Rencana Kerja Tahunan.',
             'route' => route('rkt.index'),
             'color' => 'from-[#7083C3] to-cyan-400',
             'icon' =>
@@ -49,7 +49,7 @@
             'span' => 'col-span-1',
             ],
             [
-            'title' => 'Rapor Pendidikan',
+            'title' => 'Laporan Pendidikan',
             'desc' => 'Kelola indikator dan nilai rapor pendidikan secara lengkap.',
             'route' => route('rapor-pendidikan.index'),
             'color' => 'from-yellow-400 to-yellow-500',
@@ -71,7 +71,7 @@
             ],
             [
             'title' => 'Rekomendasi Keseluruhan',
-            'desc' => 'Lihat hasil rekomendasi komprehensif berdasarkan data terkini.',
+            'desc' => 'Rekomendasi Perbaikan Layananan Satuan Pendidikan Secara Keseluruhan.',
             'route' => route('rekomendasi-keseluruhan.index'),
             'color' => 'from-rose-400 to-pink-500',
             'icon' =>
@@ -81,7 +81,7 @@
             ],
             [
             'title' => 'Rekomendasi Prioritas',
-            'desc' => 'Fokuskan pada rekomendasi prioritas untuk hasil yang cepat dan efektif.',
+            'desc' => 'Rekomendasi Perbaikan Layananan yang difokuskan Pada Hasil Capaian yang Paling Rendah .',
             'route' => route('rekomendasi-prioritas.index'),
             'color' => 'from-[#7083C3] to-[#4A5568]',
             'icon' =>

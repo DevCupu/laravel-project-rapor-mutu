@@ -9,14 +9,7 @@
             class="bg-[#7083C3] text-white px-4 py-2 rounded-xl text-sm font-medium shadow hover:bg-[#253381] transition">
             + Tambah Rekomendasi
         </a>
-    </div>
-
-    <div class="mb-6">
-        <a href="{{ route('rekomendasi-prioritas.card') }}"
-            class="inline-block text-sm text-[#7083C3] hover:underline hover:text-[#1f2c75] transition">
-            🔍 Lihat Tampilan Kartu
-        </a>
-    </div>
+    </div>  
 
     @if (session('success'))
     <div id="alert-success" class="bg-green-100 border border-green-300 text-green-800 px-4 py-3 rounded-lg mb-6 shadow-sm">

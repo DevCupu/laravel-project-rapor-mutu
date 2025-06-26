@@ -8,13 +8,13 @@
         @csrf
 
         <div>
-            <label for="kategori" class="block text-sm font-medium text-gray-700 mb-1">Kategori</label>
+            <label for="kategori" class="block text-sm font-medium text-gray-700 mb-1">Identifikasi Prioritas</label>
             <input type="text" name="kategori" id="kategori" required
                 class="w-full border border-gray-300 focus:ring-[#2F3E9E] focus:border-[#2F3E9E] rounded-lg px-4 py-2 shadow-sm transition">
         </div>
 
         <div>
-            <label for="masalah" class="block text-sm font-medium text-gray-700 mb-1">Masalah</label>
+            <label for="masalah" class="block text-sm font-medium text-gray-700 mb-1">Akar Masalah</label>
             <textarea name="masalah" id="masalah" rows="2" required
                 class="w-full border border-gray-300 focus:ring-[#2F3E9E] focus:border-[#2F3E9E] rounded-lg px-4 py-2 shadow-sm transition"></textarea>
         </div>

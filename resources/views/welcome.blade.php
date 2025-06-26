@@ -108,15 +108,16 @@
                     <canvas id="monthlyChart" height="220"></canvas>
                 </div>
                 
-                <!-- CHART 2: Bar Chart (Flexible Width) -->
+
+                <!-- CHART 2: Bar Chart (Besar) -->
                 <div
-                    style="flex:1 1 350px; background: #fff; border-radius: 1rem; box-shadow: 0 4px 24px rgba(124,58,237,0.07); padding: 2rem; min-width:520px; max-width:720px; overflow-x:auto;">
+                    style="flex:2 1 700px; background: #fff; border-radius: 1rem; box-shadow: 0 4px 24px rgba(124,58,237,0.07); padding: 2rem; min-width:700px; max-width:1000px; overflow-x:auto;">
                     <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:1rem;">
                         <i class="fas fa-coins" style="color:#7c3aed;"></i>
                         <h3 style="font-size:1.1rem;font-weight:600;color:#1f2937;">Total Biaya per Kegiatan Benahi</h3>
                     </div>
-                    <div style="min-width:{{ max(350, count($data) * 80) }}px;">
-                        <canvas id="lrkraChart" height="220"></canvas>
+                    <div style="min-width:{{ max(700, count($data) * 100) }}px;">
+                        <canvas id="lrkraChart" height="200"></canvas>
                     </div>
                 </div>
 
@@ -125,17 +126,17 @@
                     style="flex:1 1 350px; background: #fff; border-radius: 1rem; box-shadow: 0 4px 24px rgba(124,58,237,0.07); padding: 2rem; min-width:320px;">
                     <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:1rem;">
                         <i class="fas fa-chart-bar" style="color:#7c3aed;"></i>
-                        <h3 style="font-size:1.1rem;font-weight:600;color:#1f2937;">Distribusi Nilai per Kategori</h3>
+                        <h3 style="font-size:1.1rem;font-weight:600;color:#1f2937;">Distribusi Nilai Laporan Rapor per Kategori</h3>
                     </div>
                     <canvas id="raporChart" height="220"></canvas>
                 </div>
 
-                <!-- CHART 4: Line Chart Jumlah Rapor per Tahun -->
+                <!-- CHART 4: Line Chart Jumlah Laporan Rapor per Tahun -->
                 <div
                     style="flex:0 1 350px; background: #fff; border-radius: 0.85rem; box-shadow: 0 2px 12px rgba(124,58,237,0.06); padding: 1.25rem 1rem; min-width:620px; max-width:20px; margin:0 auto;">
                     <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.7rem;">
                         <i class="fas fa-chart-line" style="color:#7c3aed;font-size:1.1rem;"></i>
-                        <h3 style="font-size:1rem;font-weight:600;color:#1f2937;line-height:1.2;">Rapor
+                        <h3 style="font-size:1rem;font-weight:600;color:#1f2937;line-height:1.2;">Laporan Rapor
                             Pendidikan<br><span style="font-weight:400;color:#6b7280;font-size:0.93rem;">per
                                 Tahun</span></h3>
                     </div>
@@ -220,11 +221,24 @@
                 </div>
 
             </div>
-
             <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
             @php use Carbon\Carbon; @endphp
             <script>
-                // Chart 1
+                // Warna-warna utama untuk konsistensi visual
+                const mainColors = [
+                    '#7c3aed', // ungu tua
+                    '#22d3ee', // biru muda
+                    '#f59e42', // oranye
+                    '#10b981', // hijau
+                    '#ef4444', // merah
+                    '#fbbf24', // kuning
+                    '#6366f1', // biru keunguan
+                    '#a78bfa', // ungu muda
+                    '#f472b6', // pink
+                    '#0ea5e9', // biru terang
+                ];
+
+                // Chart 1: Line Chart Jumlah Kegiatan per Bulan
                 new Chart(document.getElementById('monthlyChart'), {
                     type: 'line',
                     data: {
@@ -232,11 +246,11 @@
                         datasets: [{
                             label: 'Jumlah Kegiatan',
                             data: {!! json_encode($monthlyData->pluck('jumlah_kegiatan')) !!},
-                            borderColor: '#7c3aed',
-                            backgroundColor: 'rgba(124,58,237,0.08)',
-                            pointBackgroundColor: '#fff',
-                            pointBorderColor: '#7c3aed',
-                            pointRadius: 5,
+                            borderColor: mainColors[0],
+                            backgroundColor: 'rgba(34,211,238,0.15)', // biru muda transparan
+                            pointBackgroundColor: mainColors[1],
+                            pointBorderColor: mainColors[0],
+                            pointRadius: 6,
                             fill: true,
                             tension: 0.4
                         }]
@@ -250,13 +264,17 @@
                         responsive: true,
                         scales: {
                             y: {
-                                beginAtZero: true
+                                beginAtZero: true,
+                                grid: { color: '#e5e7eb' }
+                            },
+                            x: {
+                                grid: { color: '#f3f4f6' }
                             }
                         }
                     }
                 });
 
-                // Chart 2
+                // Chart 2: Bar Chart Total Biaya per Kegiatan Benahi
                 new Chart(document.getElementById('lrkraChart'), {
                     type: 'bar',
                     data: {
@@ -264,12 +282,14 @@
                         datasets: [{
                             label: 'Total Biaya',
                             data: {!! json_encode($data->pluck('total_biaya')) !!},
-                            backgroundColor: [
-                                '#a78bfa', '#c4b5fd', '#ddd6fe', '#f3e8ff', '#ede9fe', '#f5f3ff', '#e0e7ff',
-                                '#dbeafe'
-                            ],
-                            borderColor: '#7c3aed',
-                            borderWidth: 1.5
+                            backgroundColor: {!! json_encode($data->pluck('kegiatan_benahi')->map(function($_, $i) use ($data) {
+                                $palette = [
+                                    '#7c3aed','#22d3ee','#f59e42','#10b981','#ef4444','#fbbf24','#6366f1','#a78bfa','#f472b6','#0ea5e9'
+                                ];
+                                return $palette[$i % count($palette)];
+                            })) !!},
+                            borderColor: '#fff',
+                            borderWidth: 2
                         }]
                     },
                     options: {
@@ -282,11 +302,15 @@
                         scales: {
                             y: {
                                 beginAtZero: true,
+                                grid: { color: '#e5e7eb' },
                                 ticks: {
                                     callback: function(value) {
                                         return 'Rp ' + value.toLocaleString('id-ID');
                                     }
                                 }
+                            },
+                            x: {
+                                grid: { color: '#f3f4f6' }
                             }
                         }
                     }
@@ -294,29 +318,44 @@
             </script>
 
             @php
-                $nilaiList = ['Tinggi', 'Sedang', 'Rendah']; // Ubah sesuai kondisi data kamu
+                // Ambil semua kategori unik dari data raporChart
+                $kategoriLabels = collect($raporChart)->pluck('kategori')->unique()->values();
+                // Ambil semua nilai unik dari data raporChart
+                $nilaiList = collect($raporChart)->pluck('nilai')->unique()->values();
+                // Warna untuk setiap nilai, disesuaikan dengan tema utama
+                $warnaNilai = [
+                    'Baik' => '#10b981',   // hijau
+                    'Sedang' => '#fbbf24', // kuning
+                    'Rendah' => '#ef4444', // merah
+                ];
             @endphp
 
             <script>
-                // CHART 3
+                // Data untuk Chart 3: Distribusi Nilai per Kategori
                 const raporData = @json($raporChart);
-                const kategoriNilai = {};
+                const labelsRapor = @json($kategoriLabels);
+                const nilaiList = @json($nilaiList);
+                const warnaNilai = @json($warnaNilai);
 
+                // Siapkan struktur data jumlah per kategori per nilai
+                const kategoriNilai = {};
+                labelsRapor.forEach(kat => {
+                    kategoriNilai[kat] = {};
+                    nilaiList.forEach(nilai => {
+                        kategoriNilai[kat][nilai] = 0;
+                    });
+                });
+
+                // Isi jumlah sesuai data
                 raporData.forEach(item => {
-                    if (!kategoriNilai[item.kategori]) {
-                        kategoriNilai[item.kategori] = {};
-                    }
                     kategoriNilai[item.kategori][item.nilai] = item.jumlah;
                 });
 
-                const labelsRapor = Object.keys(kategoriNilai);
-                const nilaiList = @json($nilaiList);
-
+                // Siapkan datasets untuk Chart.js
                 const datasetsRapor = nilaiList.map(nilai => ({
                     label: nilai,
                     data: labelsRapor.map(kat => kategoriNilai[kat][nilai] || 0),
-                    backgroundColor: nilai === 'Tinggi' ? 'rgba(34,197,94,0.7)' : nilai === 'Sedang' ?
-                        'rgba(251,191,36,0.7)' : 'rgba(239,68,68,0.7)'
+                    backgroundColor: warnaNilai[nilai] || '#0ea5e9'
                 }));
 
                 new Chart(document.getElementById('raporChart'), {
@@ -328,21 +367,45 @@
                     options: {
                         responsive: true,
                         plugins: {
+                            legend: {
+                                display: true,
+                                position: 'top'
+                            },
                             title: {
-                                display: false
+                                display: true,
+                                text: 'Distribusi Nilai Rapor Mutu per Kategori',
+                                font: { size: 16 }
                             },
                             tooltip: {
                                 mode: 'index',
-                                intersect: false
+                                intersect: false,
+                                callbacks: {
+                                    label: function(context) {
+                                        return `${context.dataset.label}: ${context.parsed.y} indikator`;
+                                    }
+                                }
                             }
                         },
                         scales: {
                             x: {
-                                stacked: true
+                                stacked: true,
+                                title: {
+                                    display: true,
+                                    text: 'Kategori'
+                                },
+                                grid: { color: '#e5e7eb' }
                             },
                             y: {
                                 stacked: true,
-                                beginAtZero: true
+                                beginAtZero: true,
+                                title: {
+                                    display: true,
+                                    text: 'Jumlah Indikator'
+                                },
+                                ticks: {
+                                    precision: 0
+                                },
+                                grid: { color: '#e5e7eb' }
                             }
                         }
                     }
@@ -361,12 +424,12 @@
                             label: 'Jumlah Indikator',
                             data: totalPerTahun,
                             fill: true,
-                            borderColor: '#7c3aed',
-                            backgroundColor: 'rgba(124,58,237,0.1)',
+                            borderColor: mainColors[2],
+                            backgroundColor: 'rgba(245,158,66,0.13)', // oranye transparan
                             tension: 0.4,
-                            pointBackgroundColor: '#fff',
-                            pointBorderColor: '#7c3aed',
-                            pointRadius: 5
+                            pointBackgroundColor: mainColors[2],
+                            pointBorderColor: '#fff',
+                            pointRadius: 6
                         }]
                     },
                     options: {
@@ -375,16 +438,38 @@
                                 display: false
                             },
                             title: {
-                                display: false
+                                display: true,
+                                text: 'Tren Jumlah Indikator Rapor Mutu per Tahun',
+                                font: { size: 16 }
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        return `Jumlah: ${context.parsed.y}`;
+                                    }
+                                }
                             }
                         },
                         responsive: true,
                         scales: {
+                            x: {
+                                title: {
+                                    display: true,
+                                    text: 'Tahun'
+                                },
+                                grid: { color: '#f3f4f6' }
+                            },
                             y: {
                                 beginAtZero: true,
+                                title: {
+                                    display: true,
+                                    text: 'Jumlah Indikator'
+                                },
                                 ticks: {
-                                    stepSize: 1
-                                }
+                                    stepSize: 1,
+                                    precision: 0
+                                },
+                                grid: { color: '#e5e7eb' }
                             }
                         }
                     }

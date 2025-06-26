@@ -7,7 +7,7 @@
     <form action="{{ route('rekomendasi-keseluruhan.store') }}" method="POST" class="space-y-8">
         @csrf
 
-        @foreach (['kategori', 'masalah'] as $field)
+        @foreach (['Identifikasi Prioritas', 'Akar Masalah'] as $field)
         <div class="form-group">
             <input
                 type="text"
