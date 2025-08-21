@@ -1,6 +1,6 @@
 ## 🚀 Laravel Project Setup Guide
 
-Selamat datang di **Rapor Mutu Pendidikan**!  
+Repository **Rapor Mutu Pendidikan**!  
 Website ini hadir untuk membantu sekolah memantau dan meningkatkan mutu pendidikan dengan lebih mudah dan cepat. Pantau perkembangan rapor mutu sekolah secara real-time dengan fitur dashboard dan insight otomatis kemudahan pengelolaan data!
 
 ---
