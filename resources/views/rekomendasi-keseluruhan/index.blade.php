@@ -4,7 +4,7 @@
 <div class="max-w-6xl mx-auto px-6 py-10">
     <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-4 mb-8">
         <x-back-to-dashboard>Kembali</x-back-to-dashboard>
-        <h1 class="text-3xl font-bold text-[#4A5568]">📋 Daftar Rekomendasi PBD</h1>
+        <h1 class="text-3xl font-bold text-[#4A5568]">📋 Daftar Rekomendasi Keseluruhan</h1>
         <a href="{{ route('rekomendasi-keseluruhan.create') }}"
             class="inline-flex items-center px-5 py-2.5 bg-[#7083C3] hover:bg-[#5e6fae] text-white text-sm font-semibold rounded-xl shadow transition">
             ➕ Tambah Rekomendasi

@@ -41,8 +41,12 @@ Website ini hadir untuk membantu sekolah memantau dan meningkatkan mutu pendidik
      ```bash
      php artisan migrate
      ```
+6. **Jalankan db seeder**
+   ```bash
+   php artisan db:seed
+   ```   
 
-6. **Jalankan Server Development**
+7. **Jalankan Server Development**
    ```bash
    php artisan serve
    ```
@@ -84,3 +88,48 @@ pass: superpassword
 ```
 Happy Coding 😁
 
+---
+
+## 🐞 Fix Production
+
+### Bug
+1. Vite tidak mau load
+2. Masalah Symlink di Hostinger
+
+### Solusi
+
+1. **Vite Build di Hosting**
+   - Sebelum upload file ke hosting, jalankan perintah:
+     ```bash
+     npm run build
+     ```
+   - Pastikan menambahkan pada file `.env`:
+     ```
+     ASSET_URL=namadomain.com/public
+     ```
+     (Tempat build package Vite)
+
+2. **Symlink Storage di Hostinger**
+   - Konfigurasi storage pada file `config/filesystems.php`:
+
+     **Contoh di lokal:**
+     ```php
+     'public' => [
+         'driver' => 'local',
+         'root' => storage_path('app/public'),
+         'url' => env('APP_URL').'/storage',
+         'visibility' => 'public',
+         'throw' => false,
+     ],
+     ```
+
+     **Contoh di production:**
+     ```php
+     'public' => [
+         'driver' => 'local',
+         'root' => public_path('storage'),
+         'url' => env('APP_URL').'/storage',
+         'visibility' => 'public',
+         'throw' => false,
+     ],
+     ```

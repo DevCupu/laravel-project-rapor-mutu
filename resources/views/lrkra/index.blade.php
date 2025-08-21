@@ -8,7 +8,7 @@
 <div class="max-w-7xl mx-auto px-6 py-10">
     <div class="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
         <x-back-to-dashboard>Kembali</x-back-to-dashboard>
-        <h2 class="text-xl font-semibold text-gray-800">📋 Daftar Kegiatan LRKRA</h2>
+        <h2 class="text-xl font-semibold text-gray-800">📋 Daftar Kegiatan ARKAS</h2>
         <a href="{{ route('lrkra.create') }}"
             class="inline-flex items-center gap-2 px-5 py-2 bg-[#7083C3] hover:bg-[#5c6bb2] text-white text-sm font-semibold rounded-xl shadow-md transition-all duration-200">
             ➕ Tambah Data

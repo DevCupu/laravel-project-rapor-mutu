@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- SEO Meta Tags -->
-    <title>Raport Mutu Pendidikan SMK Wahyu Makassar | Sistem Informasi Pendidikan</title>
+    <title>Raport Mutu Pendidikan SMKS Wahyu 1 Makassar | Sistem Informasi Pendidikan</title>
     <meta name="description"
         content="Raport Mutu Pendidikan SMK Wahyu Makassar - Sistem informasi komprehensif untuk memantau dan meningkatkan kualitas pendidikan berdasarkan 8 Standar Nasional Pendidikan.">
     <meta name="keywords"
@@ -58,7 +58,7 @@
             <div class="header-content">
                 <a href="#home" class="logo">
                     <i class="fas fa-graduation-cap"></i>
-                    SMKS Wahyu Makassar
+                    SMKS Wahyu 1 Makassar
                 </a>
 
                 <nav>
@@ -80,7 +80,7 @@
     <section class="hero" id="home">
         <div class="container">
             <div class="hero-content" style="text-align: left; max-width: 800px; margin-left: 0;">
-                <h1>Raport Mutu Pendidikan SMK Wahyu Makassar</h1>
+                <h1>Raport Mutu Pendidikan SMKS Wahyu 1 Makassar</h1>
                 <p>Sistem informasi komprehensif untuk memantau dan meningkatkan kualitas pendidikan berdasarkan 8
                     Standar Nasional Pendidikan</p>
                 <a href="#stats" class="cta-button">Lihat Raport Mutu!</a>

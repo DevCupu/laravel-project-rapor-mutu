@@ -7,24 +7,17 @@
     <form action="{{ route('rekomendasi-keseluruhan.store') }}" method="POST" class="space-y-8">
         @csrf
 
-        @foreach (['Identifikasi Prioritas', 'Akar Masalah'] as $field)
-        <div class="form-group">
-            <input
-                type="text"
-                name="{{ $field }}"
-                id="{{ $field }}"
-                required
-                placeholder=" "
-                value="{{ old($field) }}"
-                class="form-input w-full px-4 pt-6 pb-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#7083C3] focus:border-[#7083C3] transition @error($field) border-red-500 @enderror">
-            <label for="{{ $field }}" class="form-label">
-                {{ ucwords(str_replace('_', ' ', $field)) }}
-            </label>
-            @error($field)
-            <p class="text-red-600 text-sm mt-1">⚠ {{ $message }}</p>
-            @enderror
-        </div>
-        @endforeach
+        @foreach (['kategori' => 'Identifikasi Prioritas', 'masalah' => 'Akar Masalah'] as $field => $label)
+                <div class="form-group">
+                    <input type="text" name="{{ $field }}" id="{{ $field }}" required placeholder=" "
+                        value="{{ old($field) }}"
+                        class="form-input w-full px-4 pt-6 pb-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#7083C3] focus:border-[#7083C3] transition @error($field) border-red-500 @enderror">
+                    <label for="{{ $field }}" class="form-label">{{ $label }}</label>
+                    @error($field)
+                        <p class="text-red-600 text-sm mt-1">⚠ {{ $message }}</p>
+                    @enderror
+                </div>
+            @endforeach
 
         @foreach (['kegiatan_benahi' => 'Kegiatan Pembenahan', 'kegiatan_arkas' => 'Kegiatan ARKAS'] as $name => $label)
         <div class="form-group">
