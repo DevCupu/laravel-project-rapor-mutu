@@ -90,29 +90,29 @@ Happy Coding 😁
 
 ---
 
-## 🐞 Fix Production
+## 🐞 Fix Production Issues
 
-### Bug
-1. Vite tidak mau load
-2. Masalah Symlink di Hostinger
+### Bugs
+1. Vite tidak mau load di production
+2. Masalah symlink storage di Hostinger
 
 ### Solusi
 
 1. **Vite Build di Hosting**
-   - Sebelum upload file ke hosting, jalankan perintah:
+   - Sebelum upload ke hosting, jalankan:
      ```bash
      npm run build
      ```
-   - Pastikan menambahkan pada file `.env`:
+   - Tambahkan pada file `.env`:
      ```
-     ASSET_URL=namadomain.com/public
+     ASSET_URL=https://namadomain.com/public
      ```
-     (Tempat build package Vite)
+     *(Pastikan URL sesuai lokasi build Vite di hosting)*
 
 2. **Symlink Storage di Hostinger**
-   - Konfigurasi storage pada file `config/filesystems.php`:
+   - Ubah konfigurasi storage pada `config/filesystems.php`:
 
-     **Contoh di lokal:**
+     **Contoh konfigurasi lokal:**
      ```php
      'public' => [
          'driver' => 'local',
@@ -123,7 +123,7 @@ Happy Coding 😁
      ],
      ```
 
-     **Contoh di production:**
+     **Contoh konfigurasi production (Hostinger):**
      ```php
      'public' => [
          'driver' => 'local',
